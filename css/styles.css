@@ -4221,7 +4221,6 @@ input[type='button'].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  overflow: auto;
 }
 .nav-bar {
   width: 100%;
@@ -4246,6 +4245,7 @@ nav.nav-bar ul {
   float: left;
   width: 12.5%;
 }
+
 .nav-list li a {
   display: block;
   color: #f9f9f9;
@@ -7888,6 +7888,12 @@ button.bg-dark:focus {
   position: sticky !important;
 }
 
+.fixed {
+  position: absolute;
+  top: -6%;
+  z-index: 1030;
+}
+
 .fixed-top {
   position: fixed;
   top: 0;
@@ -10687,7 +10693,7 @@ header.masthead {
   background-attachment: scroll;
   position: relative;
   background-size: 100% 100%;
-  background-position: center center;
+  background-position: center 96px;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
