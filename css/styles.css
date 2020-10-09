@@ -4267,7 +4267,7 @@ nav.nav-bar ul {
 @media screen and (max-width: 480px) {
   .nav-container,
   .container {
-    background: #4f6f8f;
+    /* background: #4f6f8f; */
   }
   .nav-menu {
     color: #fff;
