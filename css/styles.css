@@ -7893,6 +7893,11 @@ button.bg-dark:focus {
   top: -6%;
   z-index: 1030;
 }
+@media only screen and (max-width: 992px) {
+  .fixed {
+    position: relative;
+  }
+}
 
 .fixed-top {
   position: fixed;
@@ -10694,6 +10699,11 @@ header.masthead {
   position: relative;
   background-size: 100% 100%;
   background-position: center 96px;
+}
+@media only screen and (max-width: 992px) {
+  header.masthead {
+    background-position: center center;
+  }
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
