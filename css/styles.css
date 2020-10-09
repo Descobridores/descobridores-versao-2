@@ -4264,10 +4264,10 @@ nav.nav-bar ul {
   padding-top: 80px;
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
   .nav-container,
   .container {
-    /* background: #4f6f8f; */
+    background: #4f6f8f;
   }
   .nav-menu {
     color: #fff;
@@ -4294,7 +4294,7 @@ nav.nav-bar ul {
     padding-left: 36%;
     padding-top: 30px;
   }
-}
+} */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .nav-container,
   .container {
