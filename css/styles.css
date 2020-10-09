@@ -4264,23 +4264,23 @@ nav.nav-bar ul {
   padding-top: 80px;
 }
 
-/* @media screen and (max-width: 480px) {
-  .nav-container,
+@media screen and (max-width: 480px) {
+  /* .nav-container,
   .container {
     background: #4f6f8f;
-  }
-  .nav-menu {
+  } */
+  /* .nav-menu {
     color: #fff;
     float: left;
     display: block;
     padding: 10px 10px;
     cursor: pointer;
-  }
-  .nav-list {
+  } */
+  /* .nav-list {
     float: left;
     width: 100%;
     height: 0;
-  }
+  } */
   .nav-open {
     height: auto;
   }
@@ -4294,7 +4294,7 @@ nav.nav-bar ul {
     padding-left: 36%;
     padding-top: 30px;
   }
-} */
+}
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .nav-container,
   .container {
