@@ -44,6 +44,11 @@
   color: #3298ff;
 }
 
+.resposta_textarea {
+  width: 700px;
+  height: 200px;
+}
+
 .opcoes:first-of-type {
   display: flex;
   justify-content: space-around;
@@ -55,7 +60,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-input {
+.opcao input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
