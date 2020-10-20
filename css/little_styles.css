@@ -1,12 +1,22 @@
 @media screen and (max-width: 1000px) {
-  #SubTitle {
+  .SubTitle {
     font-size: 30px;
+  }
+  .capa_secundaria {
+    width: 100%;
+    height: 25vh;
+    border-radius: 10px;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  #SubTitle {
+  .SubTitle {
     font-size: 40px;
+  }
+  .capa_secundaria {
+    width: 100%;
+    height: 20vh;
+    border-radius: 10px;
   }
 }
 
@@ -15,4 +25,79 @@
   height: 124px;
   border-radius: 50%;
   border: solid 6px #dfe0e1;
+}
+
+.logo {
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.TituloDesafio {
+  font-family: cursive;
+}
+
+.resposta {
+  border: #88c4ff solid 3px;
+  border-radius: 10px;
+}
+.resposta h2 {
+  color: #3298ff;
+}
+
+.opcoes:first-of-type {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.opcao {
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+  outline: none;
+}
+
+input:checked {
+  border: 6px solid #88c4ff;
+  outline: none;
+}
+
+button,
+legend {
+  color: #ffffff;
+  background-color: #88c4ff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 0;
+  font-size: 14px;
+  outline: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover,
+button:focus {
+  background-color: #3298ff;
+  outline: none;
+}
+
+button:active {
+  background-color: white;
+  color: black;
+  outline: none;
 }
