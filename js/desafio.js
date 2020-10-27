@@ -3,19 +3,20 @@ var Descricoes = [
   'Com quatro palitos e um pedaço de papel faça igual ao modelo mostrado. Tire a sujeira da pá, movendo apenas dois palitos.',
   'Matilda tem 4 quadrados marrons, 3 quadrados roxos, 2 quadrados laranjas e 1 quadrado verde. Ela quer construir uma torre, de acordo com a figura, que respeite a seguinte regra: "Dois quadrados da mesma cor não podem se tocar"',
 ]
-var Tamanho = Titulos.length
+var Tamanho = Titulos.length - 1
 
 function AntesProximo(elem, type) {
   var indice = parseInt(elem.name)
 
   if (type == 1) {
-    if (indice == Tamanho) return
+    if (indice >= Tamanho) return
     indice++
   } else {
     if (indice == 0) return
     indice--
   }
   console.log(indice)
+  console.log(Tamanho)
   document.getElementById('Anterior').setAttribute('name', indice)
   document.getElementById('Proximo').setAttribute('name', indice)
   // Troca de Titulo
