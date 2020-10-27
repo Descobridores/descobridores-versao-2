@@ -1,7 +1,12 @@
-var Titulos = ['Desafio da pá suja', 'Torre colorida de Matilda']
+var Titulos = [
+  'Desafio da pá suja',
+  'Torre colorida de Matilda',
+  'Palitos Coloridos',
+]
 var Descricoes = [
   'Com quatro palitos e um pedaço de papel faça igual ao modelo mostrado. Tire a sujeira da pá, movendo apenas dois palitos.',
   'Matilda tem 4 quadrados marrons, 3 quadrados roxos, 2 quadrados laranjas e 1 quadrado verde. Ela quer construir uma torre, de acordo com a figura, que respeite a seguinte regra: "Dois quadrados da mesma cor não podem se tocar"',
+  'Na figura ao lado usamos 9 palitos para construí-la. Os palitos podem ser pintados de azul, verde ou vermelho, desde que cada triângulo tenha seus lados com três cores diferentes. Alguns palitos já foram pintados, como mostra a figura. Qual cor pode ser usada para pintar o palito indicado com o X?',
 ]
 var Tamanho = Titulos.length - 1
 
@@ -37,6 +42,11 @@ function AntesProximo(elem, type) {
 
   img.onload = function () {
     document.getElementById('ImagemDesafio').setAttribute('src', img.src)
+    if (indice == 1) {
+      $(
+        '<img id="matilde" style="width: 500px; height: 250px;" src="./assets/img/Desafios/Matilde.png" />',
+      ).insertAfter('p')
+    } else $('img#matilde').remove()
   }
   ChecaSetas(indice)
 }
