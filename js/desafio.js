@@ -38,4 +38,49 @@ function AntesProximo(elem, type) {
   img.onload = function () {
     document.getElementById('ImagemDesafio').setAttribute('src', img.src)
   }
+  ChecaSetas(indice)
+}
+
+// Checa se as setas estão aparecendo e desaparecendo nos finais
+function ChecaSetas(indice) {
+  if (indice == Tamanho) {
+    document
+      .getElementById('Proximo')
+      .setAttribute(
+        'style',
+        'margin-left: auto; margin-right: auto; display: none',
+      )
+    document
+      .getElementById('Anterior')
+      .setAttribute(
+        'style',
+        'margin-left: auto; margin-right: auto; display: inline-block',
+      )
+  } else if (indice == 0) {
+    document
+      .getElementById('Anterior')
+      .setAttribute(
+        'style',
+        'margin-left: auto; margin-right: auto; display: none',
+      )
+    document
+      .getElementById('Proximo')
+      .setAttribute(
+        'style',
+        'margin-left: auto; margin-right: auto; display: inline-block',
+      )
+  } else {
+    document
+      .getElementById('Proximo')
+      .setAttribute(
+        'style',
+        'margin-left: auto; margin-right: auto; display: inline-block',
+      )
+    document
+      .getElementById('Anterior')
+      .setAttribute(
+        'style',
+        'margin-left: auto; margin-right: auto; display: inline-block',
+      )
+  }
 }
