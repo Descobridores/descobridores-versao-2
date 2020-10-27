@@ -112,7 +112,9 @@
           style="margin-right: 0; margin-left: 0"
         >
           <div class="col-lg-8 col-md-6 col-sm-12 mt-4">
-            <h1 class="SubTitle TituloDesafio mb-1">Desafio da pá suja</h1>
+            <h1 id="TituloDesafio" class="SubTitle TituloDesafio mb-1">
+              Desafio da pá suja
+            </h1>
             <p id="TextoDesafio" style="text-align: justify !important">
               Com quatro palitos e um pedaço de papel faça igual ao modelo
               mostrado. Tire a sujeira da pá, movendo apenas
@@ -140,10 +142,22 @@
         <button class="mb-3">Upload</button>
       </div>
       <div class="AntesProximo align-items-center row">
-        <button id="Anterior" class="col-4">
+        <button
+          id="Anterior"
+          class="col-lg-2 col-md-3 col-4"
+          name="0"
+          style="margin-right: auto; margin-left: auto"
+          onclick="AntesProximo(this, 0)"
+        >
           <img src="./assets/img/Antes.png" alt="Anterior" />
         </button>
-        <button id="Proximo" class="col-4" style="margin-left: auto">
+        <button
+          id="Proximo"
+          class="col-lg-2 col-md-3 col-4"
+          name="0"
+          style="margin-left: auto; margin-right: auto"
+          onclick="AntesProximo(this, 1)"
+        >
           <img src="./assets/img/Proximo.png" alt="Proximo" />
         </button>
       </div>
