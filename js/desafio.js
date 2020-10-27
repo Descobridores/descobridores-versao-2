@@ -44,7 +44,7 @@ function AntesProximo(elem, type) {
     document.getElementById('ImagemDesafio').setAttribute('src', img.src)
     if (indice == 1) {
       $(
-        '<img id="matilde" style="width: 500px; height: 250px;" src="./assets/img/Desafios/Matilde.png" />',
+        '<img id="matilde" class="img-thumbnail" style="width: 500px; height: 250px;" src="./assets/img/Desafios/Matilde.png" />',
       ).insertAfter('p')
     } else $('img#matilde').remove()
   }
