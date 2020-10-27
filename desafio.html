@@ -39,7 +39,6 @@
       rel="stylesheet"
     />
     <script src="./js/jquery.js"></script>
-    <script src="./js/desafio.js"></script>
   </head>
   <body>
     <!-- Navigation-->
@@ -106,7 +105,7 @@
       </div>
     </nav>
     <!-- Desafio -->
-    <section class="container" id="desafio" style="margin-top: 90px">
+    <section class="container" id="desafio" value="0" style="margin-top: 90px">
       <div class="desafio text-center mt-4">
         <div
           class="row container align-items-center"
@@ -121,7 +120,7 @@
             </p>
           </div>
           <img
-            src="./assets/img/Desafios/desafio_pa_suja.png"
+            src="./assets/img/Desafios/0.png"
             class="col-lg-4 col-md-6 col-sm-12 img-thumbnail mt-3"
             id="ImagemDesafio"
             alt="Desafio"
@@ -139,6 +138,14 @@
         </div>
         <button class="mb-3">Enviar</button>
         <button class="mb-3">Upload</button>
+      </div>
+      <div class="AntesProximo align-items-center row">
+        <button id="Anterior" class="col-4">
+          <img src="./assets/img/Antes.png" alt="Anterior" />
+        </button>
+        <button id="Proximo" class="col-4" style="margin-left: auto">
+          <img src="./assets/img/Proximo.png" alt="Proximo" />
+        </button>
       </div>
     </section>
     <!-- Footer-->
@@ -171,6 +178,7 @@
         </div>
       </div>
     </footer>
+    <script src="./js/desafio.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>

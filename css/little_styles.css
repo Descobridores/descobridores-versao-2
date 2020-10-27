@@ -96,3 +96,12 @@ button:active {
   color: black;
   outline: none;
 }
+
+.AntesProximo button {
+  height: 50px;
+  margin-top: 10px;
+}
+
+.AntesProximo button img {
+  height: 40px;
+}
