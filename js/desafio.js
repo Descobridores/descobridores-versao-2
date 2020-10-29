@@ -20,8 +20,8 @@ function AntesProximo(elem, type) {
     if (indice == 0) return
     indice--
   }
-  console.log(indice)
-  console.log(Tamanho)
+  // console.log(indice)
+  // console.log(Tamanho)
   document.getElementById('Anterior').setAttribute('name', indice)
   document.getElementById('Proximo').setAttribute('name', indice)
   // Troca de Titulo
