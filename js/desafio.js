@@ -10,7 +10,7 @@ var Descricoes = [
 ]
 var Tamanho = Titulos.length - 1
 
-function AntesProximo(elem, type) {
+function AntesProximo(elem, type, random) {
   var indice = parseInt(elem.name)
 
   if (type == 1) {
@@ -20,7 +20,12 @@ function AntesProximo(elem, type) {
     if (indice == 0) return
     indice--
   }
-  // console.log(indice)
+
+  if (random) {
+    indice = Math.floor(Math.random() * (Tamanho + 1))
+  }
+
+  // console.log()
   // console.log(Tamanho)
   document.getElementById('Anterior').setAttribute('name', indice)
   document.getElementById('Proximo').setAttribute('name', indice)

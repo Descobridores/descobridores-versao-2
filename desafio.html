@@ -39,6 +39,12 @@
       rel="stylesheet"
     />
     <script src="./js/jquery.js"></script>
+
+    <script>
+      window.onload = function () {
+        AntesProximo(0, 0, true)
+      }
+    </script>
   </head>
   <body>
     <div class="wrapper">
@@ -158,7 +164,7 @@
               class="col-lg-2 col-md-3 col-4"
               name="0"
               style="margin-right: auto; margin-left: auto"
-              onclick="AntesProximo(this, 0)"
+              onclick="AntesProximo(this, 0, false)"
             >
               <img src="./assets/img/Antes.png" alt="Anterior" />
             </button>
@@ -167,7 +173,7 @@
               class="col-lg-2 col-md-3 col-4"
               name="0"
               style="margin-left: auto; margin-right: auto"
-              onclick="AntesProximo(this, 1)"
+              onclick="AntesProximo(this, 1, false)"
             >
               <img src="./assets/img/Proximo.png" alt="Proximo" />
             </button>
