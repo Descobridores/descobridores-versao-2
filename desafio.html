@@ -42,7 +42,12 @@
 
     <script>
       window.onload = function () {
-        AntesProximo(0, 0, true)
+        AntesProximo(
+          0,
+          -1,
+          window.localStorage.getItem('aleatorio'),
+          window.localStorage.getItem('indice'),
+        )
       }
     </script>
   </head>
@@ -98,9 +103,24 @@
                     >Desafios</a
                   >
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="desafio.html">Desafio 1</a>
-                    <a class="dropdown-item" href="desafio.html">Desafio 2</a>
-                    <a class="dropdown-item" href="desafio.html">Desafio 3</a>
+                    <a
+                      class="dropdown-item"
+                      onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 0);"
+                      href="desafio.html"
+                      >Desafio 1</a
+                    >
+                    <a
+                      class="dropdown-item"
+                      onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 1);"
+                      href="desafio.html"
+                      >Desafio 2</a
+                    >
+                    <a
+                      class="dropdown-item"
+                      onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 2);"
+                      href="desafio.html"
+                      >Desafio 3</a
+                    >
                   </div>
                 </li>
                 <li class="nav-item">
@@ -184,7 +204,7 @@
               class="col-lg-2 col-md-3 col-4"
               name="0"
               style="margin-right: auto; margin-left: auto"
-              onclick="AntesProximo(this, 0, false)"
+              onclick="AntesProximo(this, 0, false, -1)"
             >
               <img src="./assets/img/Antes.png" alt="Anterior" />
             </button>
@@ -193,7 +213,7 @@
               class="col-lg-2 col-md-3 col-4"
               name="0"
               style="margin-left: auto; margin-right: auto"
-              onclick="AntesProximo(this, 1, false)"
+              onclick="AntesProximo(this, 1, false, -1)"
             >
               <img src="./assets/img/Proximo.png" alt="Proximo" />
             </button>
