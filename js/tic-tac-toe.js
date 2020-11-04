@@ -71,12 +71,30 @@ const tic_tac_toe = {
     let content = ''
 
     for (i in this.board) {
-      content +=
-        '<div onclick="tic_tac_toe.make_play(' +
-        i +
-        ')">' +
-        this.board[i] +
-        '</div>'
+      if (this.board[i] === 'P') {
+        content +=
+          '<div onclick="tic_tac_toe.make_play(' +
+          i +
+          ')">' +
+          '<img src="./assets/img/porco.png" style="height: 100px; width:100px"/>' +
+          '</div>'
+      } else if (this.board[i] === 'B') {
+        content +=
+          '<div onclick="tic_tac_toe.make_play(' +
+          i +
+          ')">' +
+          '<img src="./assets/img/boi.png" style="height: 100px; width:100px"/>' +
+          '</div>'
+      } else if (this.board[i] == 'C') {
+        content +=
+          '<div onclick="tic_tac_toe.make_play(' +
+          i +
+          ')">' +
+          '<img src="./assets/img/cavalo.png" style="height: 100px; width:100px"/>' +
+          '</div>'
+      } else {
+        content += '<div onclick="tic_tac_toe.make_play(' + i + ')">' + '</div>'
+      }
     }
 
     this.container_element.innerHTML = content
