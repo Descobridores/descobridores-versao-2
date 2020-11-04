@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/little_styles.css" />
+  </head>
+  <body>
+    <div class="container row">
+      <div class="game col-lg-9 col-md-9 col-sm-9"></div>
+      <div class="col-lg-1 col-md-1 col-sm-1">
+        <button class="btn btn-primary" onclick="tic_tac_toe.symbols.change(0)">
+          Porco
+        </button>
+        <button class="btn btn-primary" onclick="tic_tac_toe.symbols.change(1)">
+          Cavalo
+        </button>
+        <button class="btn btn-primary" onclick="tic_tac_toe.symbols.change(2)">
+          Boi
+        </button>
+        <button class="btn btn-primary" onclick="tic_tac_toe.start()">
+          Limpar
+        </button>
+      </div>
+    </div>
+
+    <script src="js/tic-tac-toe.js"></script>
+    <script>
+      tic_tac_toe.init(document.querySelector('.game'))
+      tic_tac_toe.start()
+    </script>
+  </body>
+</html>
