@@ -10,6 +10,27 @@
   }
 }
 
+.BotaoNav {
+  border: solid 3px #bbdbff;
+  border-radius: 20px;
+}
+
+.BotaoNav:active {
+  border: solid 3px #88c4ff;
+}
+
+.BotaoNav:hover {
+  border: solid 3px #88c4ff;
+  background-color: #bbdbff;
+  border-radius: 20px;
+}
+
+.BotaoNavAtual {
+  border: solid 3px #88c4ff;
+  background-color: #bbdbff;
+  border-radius: 20px;
+}
+
 #service_image {
   width: 124px;
   height: 124px;
