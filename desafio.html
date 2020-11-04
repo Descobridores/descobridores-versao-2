@@ -119,7 +119,19 @@
                       class="dropdown-item"
                       onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 2);"
                       href="desafio.html"
-                      >3 - Palitos Coloridos</a
+                      >3 - Palitos coloridos</a
+                    >
+                    <a
+                      class="dropdown-item"
+                      onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 3);"
+                      href="desafio.html"
+                      >4 - Desafio da ilha</a
+                    >
+                    <a
+                      class="dropdown-item"
+                      onclick="window.localStorage.setItem('aleatorio','false'); window.localStorage.setItem('indice', 4);"
+                      href="desafio.html"
+                      >5 - Desafio da escada</a
                     >
                   </div>
                 </li>
@@ -175,7 +187,10 @@
               class="row container align-items-center"
               style="margin-right: 0; margin-left: 0"
             >
-              <div class="col-lg-8 col-md-6 col-sm-12 mt-4">
+              <div
+                id="DivTextoDesafio"
+                class="col-lg-8 col-md-6 col-sm-12 mt-4"
+              >
                 <p id="TextoDesafio" style="text-align: justify !important"></p>
               </div>
               <img
@@ -183,6 +198,7 @@
                 class="col-lg-4 col-md-6 col-sm-12 img-thumbnail mt-3"
                 id="ImagemDesafio"
                 alt="Desafio"
+                style="display: block"
               />
             </div>
           </div>

@@ -1,12 +1,16 @@
 var Titulos = [
   'Desafio da pá suja',
   'Torre colorida de Matilda',
-  'Palitos Coloridos',
+  'Palitos coloridos',
+  'Desafio da ilha',
+  'Desafio da escada',
 ]
 var Descricoes = [
   'Com quatro palitos e um pedaço de papel faça igual ao modelo mostrado. Tire a sujeira da pá, movendo apenas dois palitos.',
   'Matilda tem 4 quadrados marrons, 3 quadrados roxos, 2 quadrados laranjas e 1 quadrado verde. Ela quer construir uma torre, de acordo com a figura, que respeite a seguinte regra: "Dois quadrados da mesma cor não podem se tocar"',
   'Na figura ao lado usamos 9 palitos para construí-la. Os palitos podem ser pintados de azul, verde ou vermelho, desde que cada triângulo tenha seus lados com três cores diferentes. Alguns palitos já foram pintados, como mostra a figura. Qual cor pode ser usada para pintar o palito indicado com o X?',
+  'Na figura vemos uma ilha com uma costa muito recortada e alguns sapos. Quantos desses sapos estão na ilha?',
+  'Uma pessoa se encontra no degrau na metade de uma escada. Sobe 5 degraus, desce 7, volta a subir 4 e depois mais 9 para chegar no último degrau. Quantos degraus a escada tem?',
 ]
 var Tamanho = Titulos.length - 1
 
@@ -46,10 +50,24 @@ function AntesProximo(elem, type, random, setIndice) {
   var img = new Image()
   img.src = './assets/img/Desafios/' + indice + '.png'
 
-  img.onerror = function () {}
+  img.onerror = function () {
+    document
+      .getElementById('ImagemDesafio')
+      .setAttribute('style', 'display:none')
+
+    document
+      .getElementById('DivTextoDesafio')
+      .setAttribute('class', 'col-lg-12 col-md-12 col-sm-12 mt-4')
+  }
 
   img.onload = function () {
+    document
+      .getElementById('DivTextoDesafio')
+      .setAttribute('class', 'col-lg-8 col-md-6 col-sm-12 mt-4')
     document.getElementById('ImagemDesafio').setAttribute('src', img.src)
+    document
+      .getElementById('ImagemDesafio')
+      .setAttribute('style', 'display:block')
     if (indice == 1) {
       $(
         '<img id="matilde" class="img-thumbnail" style="width: 500px; height: 250px;" src="./assets/img/Desafios/2.1.png" />',
