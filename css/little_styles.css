@@ -11,6 +11,8 @@
 }
 
 .BotaoNav {
+  margin-top: 1px;
+  margin-bottom: 1px;
   border: solid 3px #bbdbff;
   border-radius: 20px;
 }
@@ -20,6 +22,8 @@
 }
 
 .BotaoNav:hover {
+  margin-top: 1px;
+  margin-bottom: 1px;
   border: solid 3px #88c4ff;
   background-color: #bbdbff;
   border-radius: 20px;
