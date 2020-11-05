@@ -4,6 +4,7 @@ var Titulos = [
   'Palitos coloridos',
   'Desafio da ilha',
   'Desafio da escada',
+  'Organizando o curral',
 ]
 var Descricoes = [
   'Com quatro palitos e um pedaço de papel faça igual ao modelo mostrado. Tire a sujeira da pá, movendo apenas dois palitos.',
@@ -11,6 +12,7 @@ var Descricoes = [
   'Na figura ao lado usamos 9 palitos para construí-la. Os palitos podem ser pintados de azul, verde ou vermelho, desde que cada triângulo tenha seus lados com três cores diferentes. Alguns palitos já foram pintados, como mostra a figura. Qual cor pode ser usada para pintar o palito indicado com o X?',
   'Na figura vemos uma ilha com uma costa muito recortada e alguns sapos. Quantos desses sapos estão na ilha?',
   'Uma pessoa se encontra no degrau na metade de uma escada. Sobe 5 degraus, desce 7, volta a subir 4 e depois mais 9 para chegar no último degrau. Quantos degraus a escada tem?',
+  'Um fazendeiro possui 3 cavalos, 3 porcos e 3 vacas. Em sua fazenda, há um curral dividido em 9 partes, dispostas em 3 fileiras de 3. O fazendeiro já colocou um porco e um cavalo. Agora, ele quer que você preencha as partes vazias, de modo que cada uma seja ocupada somente por um animal, e em cada fileira haja um animal de cada tipo.',
 ]
 var Tamanho = Titulos.length - 1
 
@@ -58,6 +60,8 @@ function AntesProximo(elem, type, random, setIndice) {
     document
       .getElementById('DivTextoDesafio')
       .setAttribute('class', 'col-lg-12 col-md-12 col-sm-12 mt-4')
+
+    $('a#curral').remove()
   }
 
   img.onload = function () {
@@ -73,6 +77,12 @@ function AntesProximo(elem, type, random, setIndice) {
         '<img id="matilde" class="img-thumbnail" style="width: 500px; height: 250px;" src="./assets/img/Desafios/2.1.png" />',
       ).insertAfter('p')
     } else $('img#matilde').remove()
+
+    if (indice == 5) {
+      $(
+        '<a id="curral" class="btn btn-primary" href="curral.html" target="_blank">Fazer teste</a>',
+      ).insertAfter('p')
+    } else $('a#curral').remove()
   }
   ChecaSetas(indice)
 }
