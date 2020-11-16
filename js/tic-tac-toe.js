@@ -177,7 +177,8 @@ const tic_tac_toe = {
     this.playerTurn = true
     this.wrong_indexs = []
     this.tentativas++
-    document.querySelector('h5').innerHTML = 'Tentativas: ' + this.tentativas
+    document.querySelector('#tentativas').innerHTML =
+      'Tentativas: ' + this.tentativas
     this.draw()
     this.gameover = false
   },

@@ -175,38 +175,52 @@
       </main>
       <br />
       <div class="container row">
+        <div class="col-lg-1 col-md-1 col-sm-1"></div>
         <div
-          class="game col-lg-10 col-md-10 col-sm-10"
-          style="padding-left: 120px"
+          class="game col-lg-9 col-md-9 col-sm-9"
+          style="padding-left: 20px"
         ></div>
         <div class="col-lg-2 col-md-2 col-sm-2">
-          <button class="btn" onclick="tic_tac_toe.symbols.change(0)">
+          <br />
+          <h4 id="tentativas">Tentativas: 0</h4>
+          <br />
+          <button
+            class="btn"
+            onclick="tic_tac_toe.symbols.change(0)"
+            style="height: 150px; width: 150px"
+          >
             <img
               src="./assets/img/porco.png"
               style="height: 100px; width: 100px"
             />
             Porco
           </button>
-          <button class="btn" onclick="tic_tac_toe.symbols.change(1)">
+          <button
+            class="btn"
+            onclick="tic_tac_toe.symbols.change(1)"
+            style="height: 150px; width: 150px"
+          >
             <img
               src="./assets/img/cavalo.png"
               style="height: 100px; width: 100px"
             />
             Cavalo
           </button>
-          <button class="btn" onclick="tic_tac_toe.symbols.change(2)">
+          <button
+            class="btn"
+            onclick="tic_tac_toe.symbols.change(2)"
+            style="height: 150px; width: 150px"
+          >
             <img
               src="./assets/img/boi.png"
               style="height: 100px; width: 100px"
-            />
+            /><br />
             Boi
           </button>
           <br /><br />
           <button class="btn btn-primary" onclick="tic_tac_toe.start()">
             Tentar de novo
           </button>
-          <br /><br />
-          <h5 id="tentativas">Tentativas: 0</h5>
         </div>
       </div>
       <footer class="footer py-2">
