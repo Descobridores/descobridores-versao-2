@@ -175,49 +175,10 @@
       <br />
       <div class="container">
         <div class="row">
-        <div class="game col-lg-9 col-md-9 col-sm-9"></div>
-        <div class="col-lg-3 col-md-3 col-sm-3">
-          <br />
-          <h4 id="tentativas">Tentativas: 0</h4>
-          <br />
-          <button
-            class="btn"
-            onclick="tic_tac_toe.symbols.change(0)"
-            style="height: 150px; width: 150px"
-          >
-            <img
-              src="./assets/img/porco.png"
-              style="height: 100px; width: 100px"
-            />
-            Porco
-          </button>
-          <button
-            class="btn"
-            onclick="tic_tac_toe.symbols.change(1)"
-            style="height: 150px; width: 150px"
-          >
-            <img
-              src="./assets/img/cavalo.png"
-              style="height: 100px; width: 100px"
-            />
-            Cavalo
-          </button>
-          <button
-            class="btn"
-            onclick="tic_tac_toe.symbols.change(2)"
-            style="height: 150px; width: 150px"
-          >
-            <img
-              src="./assets/img/boi.png"
-              style="height: 100px; width: 100px"
-            /><br />
-            Boi
-          </button>
-          <br /><br />
-          <button class="btn btn-primary" onclick="tic_tac_toe.start()">
-            Tentar de novo
-          </button>
-        </div>
+          <div class="col-lg-1 col-md-1 col-sm-1"></div>
+          <div class="game col-lg-7 col-md-7 col-sm-7"></div>
+          <div class="col-lg-1 col-md-1 col-sm-1"></div>
+        <div id="botoes" class="col-lg-2 col-md-3 col-sm-3"></div>
       </div>
       <footer class="footer py-2">
         <div class="container">
@@ -260,6 +221,7 @@
     <script src="js/tic-tac-toe.js"></script>
     <script>
       tic_tac_toe.init(document.querySelector('.game'))
+      tic_tac_toe.init_botoes(document.querySelector('#botoes'))
       tic_tac_toe.start()
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

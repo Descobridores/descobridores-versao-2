@@ -80,7 +80,7 @@ function AntesProximo(elem, type, random, setIndice) {
 
     if (indice == 5) {
       $(
-        '<a id="curral" class="btn btn-primary" href="curral.html" style="background-color: #3298ff; font-size: 20px;">Iniciar tentativa</a>',
+        '<a id="curral" class="btn btn-primary" href="curral.html" style="background-color: #3298ff; font-size: 20px;">Iniciar desafio</a>',
       ).insertAfter('p')
     } else $('a#curral').remove()
   }

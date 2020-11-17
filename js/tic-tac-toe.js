@@ -3,19 +3,27 @@ const tic_tac_toe = {
   // ATTRIBUTES
   board: ['', '', 'P', '', '', '', 'C', '', ''],
   symbols: {
-    options: ['P', 'C', 'B'],
+    options: ['P', 'C', 'B', ''],
     turn_index: 0,
     change: function (element) {
       this.turn_index = element
     },
   },
   wrong_indexs: [],
-  tentativas: -1,
+  porco: 2,
+  cavalo: 2,
+  boi: 3,
+  tentativas: 0,
+  botoes: null,
   container_element: null,
 
   // FUNCTIONS
   init: function (container) {
     this.container_element = container
+  },
+
+  init_botoes: function (container) {
+    this.botoes = container
   },
 
   is_full: function () {
@@ -129,31 +137,22 @@ const tic_tac_toe = {
     return returning
   },
 
-  check_row: function (animal, position) {
-    while (position > 2) position -= 3
-
-    for (var i = position; i < 9; i += 3) {
-      if (this.board[i] === animal) {
-        return false
-      }
-    }
-
-    return true
-  },
-
-  check_column: function (animal, position) {
-    while (position % 3 != 0) position -= 1
-
-    var j = 0
-    for (var i = position; j < 3; i++, j++)
-      if (this.board[i] === animal) return false
-
-    return true
-  },
-
   make_play: function (position) {
-    if (this.board[position] === '') {
+    if (this.board[position] === '' && this.symbols.turn_index != 3) {
       this.board[position] = this.symbols.options[this.symbols.turn_index]
+
+      switch (this.board[position]) {
+        case 'P':
+          this.porco--
+          break
+        case 'C':
+          this.cavalo--
+          break
+        case 'B':
+          this.boi--
+          break
+      }
+
       this.draw()
 
       if (this.is_full()) {
@@ -171,15 +170,82 @@ const tic_tac_toe = {
     }
   },
 
+  draw_beggining: function () {
+    let content = ''
+    let draw_botoes = ''
+
+    for (i in this.board) {
+      if (this.board[i] === 'P') {
+        content +=
+          '<div onclick="tic_tac_toe.make_play(' +
+          i +
+          ')">' +
+          '<img src="./assets/img/porco.png" style="height: 100px; width:100px"/>' +
+          '</div>'
+      } else if (this.board[i] === 'B') {
+        content +=
+          '<div onclick="tic_tac_toe.make_play(' +
+          i +
+          ')">' +
+          '<img src="./assets/img/boi.png" style="height: 100px; width:100px"/>' +
+          '</div>'
+      } else if (this.board[i] == 'C') {
+        content +=
+          '<div onclick="tic_tac_toe.make_play(' +
+          i +
+          ')">' +
+          '<img src="./assets/img/cavalo.png" style="height: 100px; width:100px"/>' +
+          '</div>'
+      } else {
+        content += '<div onclick="tic_tac_toe.make_play(' + i + ')">' + '</div>'
+      }
+    }
+    try {
+      document.querySelector('#porco').remove()
+    } catch {}
+    try {
+      document.querySelector('#cavalo').remove()
+    } catch {}
+    try {
+      document.querySelector('#boi').remove()
+    } catch {}
+
+    draw_botoes =
+      '<br />' +
+      '<h4 id="tentativas">Tentativas: ' +
+      this.tentativas +
+      '</h4> <br />' +
+      '<button id="porco" class="btn" onclick="tic_tac_toe.symbols.change(0)" style="height: 100px; width: 100px"> <img src="./assets/img/porco.png" style="height: 70px; width: 70px" /> Porco: 2 </button> <button id="cavalo" class="btn" onclick="tic_tac_toe.symbols.change(1)" style="height: 100px; width: 100px"> <img src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo: 2 </button> <button id="boi" class="btn" onclick="tic_tac_toe.symbols.change(2)" style="height: 100px; width: 100px"> <img src="./assets/img/boi.png" style="height: 70px; width: 70px"/><br /> Boi: 3 </button>' +
+      '<br /><br /> <button class="btn btn-primary" onclick="tic_tac_toe.start()"> Tentar de novo </button>'
+
+    this.container_element.innerHTML = content
+    this.botoes.innerHTML = draw_botoes
+  },
+
+  check_board_position: function () {
+    if (this.board[2] == 'P' && this.board[6] == 'C') {
+      for (var i = 0; i < 9; i++) {
+        if (i != 2 && i != 6) {
+          if (this.board[i] != '') {
+            return true
+          }
+        }
+      }
+    } else return true
+
+    return false
+  },
+
   start: function () {
+    if (this.check_board_position()) this.tentativas++
     this.board = ['', '', 'P', '', '', '', 'C', '', '']
     this.symbols.turn_index = 0
     this.playerTurn = true
     this.wrong_indexs = []
-    this.tentativas++
-    document.querySelector('#tentativas').innerHTML =
-      'Tentativas: ' + this.tentativas
-    this.draw()
+    this.porco = 2
+    this.cavalo = 2
+    this.boi = 3
+    this.draw_beggining()
     this.gameover = false
   },
 
@@ -261,6 +327,12 @@ const tic_tac_toe = {
     this.container_element.innerHTML = content
   },
 
+  insertAfter: function (referenceNode, newNode) {
+    try {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling)
+    } catch {}
+  },
+
   draw: function () {
     let content = ''
 
@@ -289,6 +361,57 @@ const tic_tac_toe = {
       } else {
         content += '<div onclick="tic_tac_toe.make_play(' + i + ')">' + '</div>'
       }
+    }
+
+    if (this.porco == 0) {
+      var el = document.createElement('porco')
+      el.innerHTML =
+        '<img class="stop-action" src="./assets/img/porco.png" style="height: 70px; width: 70px"/> Porco: ' +
+        this.porco
+      var div = document.getElementById('porco')
+      this.insertAfter(div, el)
+      try {
+        document.querySelector('#porco').remove()
+        this.symbols.turn_index = 3
+      } catch {}
+    } else {
+      document.querySelector('#porco').innerHTML =
+        '<img src="./assets/img/porco.png" style="height: 70px; width: 70px"/> Porco: ' +
+        this.porco
+    }
+
+    if (this.boi == 0) {
+      var el = document.createElement('boi')
+      el.innerHTML =
+        '<img class="stop-action" src="./assets/img/boi.png" style="height: 70px; width: 70px"/> Boi: ' +
+        this.boi
+      var div = document.getElementById('boi')
+      this.insertAfter(div, el)
+      try {
+        document.querySelector('#boi').remove()
+        this.symbols.turn_index = 3
+      } catch {}
+    } else {
+      document.querySelector('#boi').innerHTML =
+        '<img src="./assets/img/boi.png" style="height: 70px; width: 70px"/> Boi: ' +
+        this.boi
+    }
+
+    if (this.cavalo == 0) {
+      var el = document.createElement('cavalo')
+      el.innerHTML =
+        '<img class="stop-action" src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo: ' +
+        this.cavalo
+      var div = document.getElementById('cavalo')
+      this.insertAfter(div, el)
+      try {
+        document.querySelector('#cavalo').remove()
+        this.symbols.turn_index = 3
+      } catch {}
+    } else {
+      document.querySelector('#cavalo').innerHTML =
+        '<img src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo: ' +
+        this.cavalo
     }
 
     this.container_element.innerHTML = content

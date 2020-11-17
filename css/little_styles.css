@@ -208,6 +208,10 @@ button:active {
   text-align: center;
 }
 
+.stop-action {
+  opacity: 0.5;
+}
+
 .game {
   width: 600px;
   height: 600px;
@@ -218,7 +222,7 @@ button:active {
   border-radius: 10px;
 */
   display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template: repeat(3, 0.25fr) / repeat(3, 0.45fr);
 }
 
 .game > div {
