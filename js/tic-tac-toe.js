@@ -5,8 +5,10 @@ const tic_tac_toe = {
   symbols: {
     options: ['P', 'C', 'B', ''],
     turn_index: 0,
-    change: function (element) {
+    id_animal: 0,
+    change: function (element, id) {
       this.turn_index = element
+      this.id_animal = id
     },
   },
   wrong_indexs: [],
@@ -20,6 +22,7 @@ const tic_tac_toe = {
   // FUNCTIONS
   init: function (container) {
     this.container_element = container
+    this.turn_index = 3
   },
 
   init_botoes: function (container) {
@@ -141,18 +144,6 @@ const tic_tac_toe = {
     if (this.board[position] === '' && this.symbols.turn_index != 3) {
       this.board[position] = this.symbols.options[this.symbols.turn_index]
 
-      switch (this.board[position]) {
-        case 'P':
-          this.porco--
-          break
-        case 'C':
-          this.cavalo--
-          break
-        case 'B':
-          this.boi--
-          break
-      }
-
       this.draw()
 
       if (this.is_full()) {
@@ -201,21 +192,45 @@ const tic_tac_toe = {
       }
     }
     try {
-      document.querySelector('#porco').remove()
+      document.querySelector('#porco1').remove()
     } catch {}
     try {
-      document.querySelector('#cavalo').remove()
+      document.querySelector('#porco2').remove()
+    } catch {}
+    try {
+      document.querySelector('#cavalo1').remove()
+    } catch {}
+    try {
+      document.querySelector('#cavalo2').remove()
     } catch {}
     try {
       document.querySelector('#boi').remove()
+    } catch {}
+    try {
+      document.querySelector('#boi2').remove()
+    } catch {}
+    try {
+      document.querySelector('#boi3').remove()
     } catch {}
 
     draw_botoes =
       '<br />' +
       '<h4 id="tentativas">Tentativas: ' +
       this.tentativas +
-      '</h4> <br />' +
-      '<button id="porco" class="btn" onclick="tic_tac_toe.symbols.change(0)" style="height: 100px; width: 100px"> <img src="./assets/img/porco.png" style="height: 70px; width: 70px" /> Porco: 2 </button> <button id="cavalo" class="btn" onclick="tic_tac_toe.symbols.change(1)" style="height: 100px; width: 100px"> <img src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo: 2 </button> <button id="boi" class="btn" onclick="tic_tac_toe.symbols.change(2)" style="height: 100px; width: 100px"> <img src="./assets/img/boi.png" style="height: 70px; width: 70px"/><br /> Boi: 3 </button>' +
+      '</h4>' +
+      '<div class="row">' +
+      '<button id="porco1" class="btn" onclick="tic_tac_toe.symbols.change(0, 1)" style="height: 100px; width: 100px"> <img src="./assets/img/porco.png" style="height: 70px; width: 70px" /> Porco</button>' +
+      '<button id="porco2" class="btn" onclick="tic_tac_toe.symbols.change(0, 2)" style="height: 100px; width: 100px"> <img src="./assets/img/porco.png" style="height: 70px; width: 70px" /> Porco</button>' +
+      '</div>' +
+      '<div class="row">' +
+      '<button id="cavalo1" class="btn" onclick="tic_tac_toe.symbols.change(1, 3)" style="height: 100px; width: 100px"> <img src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo</button>' +
+      '<button id="cavalo2" class="btn" onclick="tic_tac_toe.symbols.change(1, 4)" style="height: 100px; width: 100px"> <img src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo</button>' +
+      '</div>' +
+      '<div class="row">' +
+      '<button id="boi1" class="btn" onclick="tic_tac_toe.symbols.change(2, 5)" style="height: 100px; width: 100px"> <img src="./assets/img/boi.png" style="height: 70px; width: 70px"/><br /> Boi</button>' +
+      '<button id="boi2" class="btn" onclick="tic_tac_toe.symbols.change(2, 6)" style="height: 100px; width: 100px"> <img src="./assets/img/boi.png" style="height: 70px; width: 70px"/><br /> Boi</button>' +
+      '<button id="boi3" class="btn" onclick="tic_tac_toe.symbols.change(2, 7)" style="height: 100px; width: 100px"> <img src="./assets/img/boi.png" style="height: 70px; width: 70px"/><br /> Boi</button>' +
+      '</div>' +
       '<br /><br /> <button class="btn btn-primary" onclick="tic_tac_toe.start()"> Tentar de novo </button>'
 
     this.container_element.innerHTML = content
@@ -240,13 +255,11 @@ const tic_tac_toe = {
     if (this.check_board_position()) this.tentativas++
     this.board = ['', '', 'P', '', '', '', 'C', '', '']
     this.symbols.turn_index = 0
-    this.playerTurn = true
     this.wrong_indexs = []
     this.porco = 2
     this.cavalo = 2
     this.boi = 3
     this.draw_beggining()
-    this.gameover = false
   },
 
   color_board_green: function () {
@@ -363,55 +376,90 @@ const tic_tac_toe = {
       }
     }
 
-    if (this.porco == 0) {
-      var el = document.createElement('porco')
-      el.innerHTML =
-        '<img class="stop-action" src="./assets/img/porco.png" style="height: 70px; width: 70px"/> Porco: ' +
-        this.porco
-      var div = document.getElementById('porco')
-      this.insertAfter(div, el)
-      try {
-        document.querySelector('#porco').remove()
-        this.symbols.turn_index = 3
-      } catch {}
-    } else {
-      document.querySelector('#porco').innerHTML =
-        '<img src="./assets/img/porco.png" style="height: 70px; width: 70px"/> Porco: ' +
-        this.porco
-    }
+    switch (this.symbols.id_animal) {
+      case 1:
+        var el = document.createElement('porco1')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/porco.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('porco1')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#porco1').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
 
-    if (this.boi == 0) {
-      var el = document.createElement('boi')
-      el.innerHTML =
-        '<img class="stop-action" src="./assets/img/boi.png" style="height: 70px; width: 70px"/> Boi: ' +
-        this.boi
-      var div = document.getElementById('boi')
-      this.insertAfter(div, el)
-      try {
-        document.querySelector('#boi').remove()
-        this.symbols.turn_index = 3
-      } catch {}
-    } else {
-      document.querySelector('#boi').innerHTML =
-        '<img src="./assets/img/boi.png" style="height: 70px; width: 70px"/> Boi: ' +
-        this.boi
-    }
+      case 2:
+        var el = document.createElement('porco2')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/porco.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('porco2')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#porco2').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
 
-    if (this.cavalo == 0) {
-      var el = document.createElement('cavalo')
-      el.innerHTML =
-        '<img class="stop-action" src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo: ' +
-        this.cavalo
-      var div = document.getElementById('cavalo')
-      this.insertAfter(div, el)
-      try {
-        document.querySelector('#cavalo').remove()
-        this.symbols.turn_index = 3
-      } catch {}
-    } else {
-      document.querySelector('#cavalo').innerHTML =
-        '<img src="./assets/img/cavalo.png" style="height: 70px; width: 70px"/> Cavalo: ' +
-        this.cavalo
+      case 3:
+        var el = document.createElement('cavalo1')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/cavalo.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('cavalo1')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#cavalo1').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
+
+      case 4:
+        var el = document.createElement('cavalo2')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/cavalo.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('cavalo2')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#cavalo2').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
+
+      case 5:
+        var el = document.createElement('boi1')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/boi.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('boi1')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#boi1').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
+
+      case 6:
+        var el = document.createElement('boi2')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/boi.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('boi2')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#boi2').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
+
+      case 7:
+        var el = document.createElement('boi3')
+        el.innerHTML =
+          '<img class="stop-action" src="./assets/img/boi.png" style="height: 100px; width: 100px"/>'
+        var div = document.getElementById('boi3')
+        this.insertAfter(div, el)
+        try {
+          document.querySelector('#boi3').remove()
+          this.symbols.turn_index = 3
+        } catch {}
+        break
     }
 
     this.container_element.innerHTML = content
